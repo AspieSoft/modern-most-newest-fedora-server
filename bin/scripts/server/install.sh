@@ -8,7 +8,7 @@ dnf -y install xorg-x11-server-Xwayland xorg-x11-server-Xwayland-devel wayland-d
 dnf -y install xorg-x11-util-macros xorg-x11-xinit-session wayland-utils
 dnf -y install xsettingsd xsensors xsecurelock xmodmap xfontsel xdpyinfo xcursorgen libXfont libXfont-devel libICE libICE-devel
 
-# dnf -y install xorg-x11-*
+# dnf -y --skip-broken install xorg-x11-*
 dnf -y install xorg-x11-xdm
 echo "DISPLAYMANAGER=xdm" >> /etc/sysconfig/desktop
 
