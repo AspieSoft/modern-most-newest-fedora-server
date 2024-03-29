@@ -122,8 +122,8 @@ ln -s /etc/systemd/system/kdump.service.target /dev/null
 
 #todo: lookup editing kernel arguments
 
-if [ "$1" = "-s" -o "$1" = "--server" ]; then
+if [ "$1" = "-s" -o "$1" = "--server" -o "$1" = "-server" -o "$1" = "server" ]; then
   source ./bin/scripts/server/install.sh
-elif [ "$1" = "-d" -o "$1" = "--desktop" ]; then
+elif [ "$1" = "-d" -o "$1" = "--desktop" -o "$1" = "-desktop" -o "$1" = "desktop" ]; then
   source ./bin/scripts/desktop/install.sh
 fi
