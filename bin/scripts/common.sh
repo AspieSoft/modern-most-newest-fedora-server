@@ -20,6 +20,8 @@ function curl-install-if-ok {
 }
 
 function mvln {
-  mv -f "$1" "$2"
-  ln -s "$2" "$1"
+  if ! [ -s "$2" ]; then
+    mv -f "$1" "$2"
+    ln -s "$2" "$1"
+  fi
 }
