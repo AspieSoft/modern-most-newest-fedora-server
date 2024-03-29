@@ -39,6 +39,11 @@ dnf -y install i3 i3status dmenu i3lock xbacklight feh conky
 systemctl set-default graphical.target
 
 
+#* add i3 shortcust
+sed -i 's/^# resize window/# custom\n\n#resize window/m' /etc/i3/config
+sed -i 's/^# custom/# custom\nbindsym Control+Mod1+Delete exec i3-msg exit/m' /etc/i3/config
+
+
 #todo: setup i3 theme (https://codeberg.org/derat/xsettingsd#settings)
 
 
