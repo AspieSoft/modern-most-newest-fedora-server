@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./bin/scripts/common.sh
+
 #* optimize package manager
 if ! grep -R "^# Added for Speed" "/etc/dnf/dnf.conf"; then
   sudo sed -r -i 's/^best=(.*)$/best=True/m' "/etc/dnf/dnf.conf"
@@ -28,7 +30,7 @@ ufw default allow outgoing
 ufw enable
 
 
-bash ./bin/scripts/harden.sh
+source ./bin/scripts/harden.sh
 
 
 #* add rpmfusion repos
@@ -102,14 +104,17 @@ systemctl enable fstrim.timer --now
 systemctl enable systemd-oomd.service --now
 systemctl enable sshd.socket --now
 
-mv -f /home /var/home
-ln -s /var/home /home
+mvln /home /var/home
+# mv -f /home /var/home
+# ln -s /var/home /home
 
-mv -f /root /var/roothome
-ln -s /var/roothome /root
+mvln /root /var/roothome
+# mv -f /root /var/roothome
+# ln -s /var/roothome /root
 
-mv -f /usr/share /var/usrshare
-ln -s /var/usrshare /usr/share
+mvln /usr/share /var/usrshare
+# mv -f /usr/share /var/usrshare
+# ln -s /var/usrshare /usr/share
 
 ln -s /etc/localtime /usr/share/zoneinfo/America/New_York
 ln -s /etc/systemd/system/multi-user.target.wants/tuned.service /usr/lib/systemd/system/tuned.service
@@ -118,7 +123,7 @@ ln -s /etc/systemd/system/kdump.service.target /dev/null
 #todo: lookup editing kernel arguments
 
 if [ "$1" = "-s" -o "$1" = "--server" ]; then
-  bash ./bin/scripts/server/install.sh
+  source ./bin/scripts/server/install.sh
 elif [ "$1" = "-d" -o "$1" = "--desktop" ]; then
-  bash ./bin/scripts/desktop/install.sh
+  source ./bin/scripts/desktop/install.sh
 fi
