@@ -47,7 +47,7 @@ sed -i 's/^# custom/# custom\nbindsym Control+Mod1+Delete exec i3-msg exit/m' /e
 #todo: setup i3 theme (https://codeberg.org/derat/xsettingsd#settings)
 
 tar -xzf ./bin/assets/backgrounds.tar.gz -C /usr/share/backgrounds
-feh --bg-fill /usr/share/backgrounds/aspiesoft/black.webp
+feh --bg-fill /usr/share/backgrounds/aspiesoft/black.png
 
 
 #* Install apps
