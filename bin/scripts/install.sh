@@ -23,7 +23,7 @@ dnf -y install ufw
 systemctl disable firewalld --now
 systemctl enable ufw --now
 for i in $(ufw status | wc -l); do
-  ufw delete 1
+  ufw --force delete 1
 done
 ufw default deny incoming
 ufw default allow outgoing
