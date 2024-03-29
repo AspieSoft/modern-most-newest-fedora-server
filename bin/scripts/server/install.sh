@@ -49,6 +49,21 @@ sed -i 's/^# custom/# custom\nbindsym Control+Mod1+Delete exec i3-msg exit/m' /e
 tar -xzf ./bin/assets/backgrounds.tar.gz -C /usr/share/backgrounds
 feh --bg-fill /usr/share/backgrounds/aspiesoft/black.png
 
+#* set theme
+gsettings set org.gnome.desktop.interface clock-format 12h
+gsettings set org.gnome.desktop.interface clock-show-weekday true
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
-#* Install apps
-dnf -y install gnome-terminal gnome-text-editor nemo chromium
+gsettings set org.gnome.desktop.interface gtk-theme "Fluent-round-Dark"
+
+dnf -y install lxappearance
+dnf -y install plymouth-system-theme mesa-dri-drivers mesa-vulkan-drivers abattis-cantarell-fonts
+
+dnf -y install xorg-x11-drv-fbdev xorg-x11-drv-vesa
+
+#todo: auto detect gpu type
+dnf -y install xorg-x11-amdgpu
+
+
+#* install apps
+dnf -y install gnome-terminal gnome-text-editor nemo nemo-fileroller chromium
