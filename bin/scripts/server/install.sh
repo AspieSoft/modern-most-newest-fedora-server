@@ -17,7 +17,7 @@ dnf -y install jetbrains-mono-fonts
 
 
 #* install ly
-dnf -y install libpamtest pam-devel selinux-policy-devel # dependencies
+dnf -y install libpamtest pam-devel # dependencies
 git clone --recurse-submodules https://github.com/fairyglade/ly
 cd ly
 make

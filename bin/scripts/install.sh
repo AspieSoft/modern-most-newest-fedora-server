@@ -96,7 +96,7 @@ systemctl enable docker --now
 
 
 #* install common packages
-dnf -y install nano neofetch btrfs-progs lvm2 xfsprogs ntfs-3g ntfsprogs exfatprogs udftools p7zip p7zip-plugins hplip hplip-gui inotify-tools guvcview
+dnf -y install nano neofetch btrfs-progs lvm2 xfsprogs ntfs-3g ntfsprogs exfatprogs udftools p7zip p7zip-plugins hplip hplip-gui inotify-tools guvcview selinux-policy-devel
 
 #todo: auto copy files to os
 
