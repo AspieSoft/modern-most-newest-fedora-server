@@ -11,6 +11,7 @@ dnf -y install xsettingsd xsensors xsecurelock xmodmap xfontsel xdpyinfo xcursor
 #* install fonts
 dnf -y install jetbrains-mono-fonts
 
+
 #* install ly
 git clone --recurse-submodules https://github.com/fairyglade/ly
 cd ly
