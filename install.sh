@@ -10,3 +10,5 @@ fi
 #todo: download bin from github
 
 source ./bin/scripts/install.sh "$1"
+
+reboot
