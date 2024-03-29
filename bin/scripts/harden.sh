@@ -32,3 +32,6 @@ fi
 curl-install-if-ok "https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_silent-kernel-printk.conf" "/etc/sysctl.d/30_silent-kernel-printk.conf"
 curl-install-if-ok "https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc_kexec-disable.conf" "/etc/sysctl.d/30_security-misc_kexec-disable.conf"
 curl-install-if-ok "https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf" "/etc/chrony.conf"
+
+
+#todo: remember to add other securety apps
