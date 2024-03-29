@@ -1,0 +1,8 @@
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/setsebool container_use_cephfs off
+ExecStart=/usr/sbin/setsebool virt_use_nfs off
+ExecStart=/usr/sbin/setsebool virt_use_samba off
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
