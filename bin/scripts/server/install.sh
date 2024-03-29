@@ -8,12 +8,16 @@ dnf -y install xorg-x11-server-Xwayland xorg-x11-server-Xwayland-devel wayland-d
 dnf -y install xorg-x11-util-macros xorg-x11-xinit-session wayland-utils
 dnf -y install xsettingsd xsensors xsecurelock xmodmap xfontsel xdpyinfo xcursorgen libXfont libXfont-devel libICE libICE-devel
 
+# dnf -y install xorg-x11-*
+dnf -y install xorg-x11-xdm
+echo "DISPLAYMANAGER=xdm" >> /etc/sysconfig/desktop
+
 #* install fonts
 dnf -y install jetbrains-mono-fonts
 
 
 #* install ly
-dnf -y install libpamtest pam-devel # dependencies
+dnf -y install libpamtest pam-devel selinux-policy-devel # dependencies
 git clone --recurse-submodules https://github.com/fairyglade/ly
 cd ly
 make
@@ -27,3 +31,7 @@ rm -rf ./ly
 dnf -y install i3 i3status dmenu i3lock xbacklight feh conky
 
 systemctl set-default graphical.target
+
+
+#* Install apps
+dnf -y install gnome-terminal gnome-text-editor nemo chromium
