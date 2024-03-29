@@ -39,5 +39,8 @@ dnf -y install i3 i3status dmenu i3lock xbacklight feh conky
 systemctl set-default graphical.target
 
 
+#todo: setup i3 theme (https://codeberg.org/derat/xsettingsd#settings)
+
+
 #* Install apps
 dnf -y install gnome-terminal gnome-text-editor nemo chromium
