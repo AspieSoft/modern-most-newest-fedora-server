@@ -118,7 +118,7 @@ mvln /usr/share /var/usrshare
 
 ln -s /etc/localtime /usr/share/zoneinfo/America/New_York
 ln -s /etc/systemd/system/multi-user.target.wants/tuned.service /usr/lib/systemd/system/tuned.service
-ln -s /etc/systemd/system/kdump.service.target /dev/null
+# ln -s /etc/systemd/system/kdump.service.target /dev/null
 
 #todo: lookup editing kernel arguments
 
