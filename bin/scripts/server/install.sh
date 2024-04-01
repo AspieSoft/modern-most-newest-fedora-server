@@ -25,10 +25,14 @@ make install installsystemd
 systemctl enable ly.service
 systemctl disable getty@tty2.service
 
+setenforce 0
+
 #* fix ly selinux permissions
 # wget https://github.com/nullgemm/ly/files/5922013/ly.tar.gz
 tar -xzf ../bin/assets/ly.tar.gz -C .
 bash ./ly.sh
+
+setenforce 1
 
 cd ..
 rm -rf ./ly
