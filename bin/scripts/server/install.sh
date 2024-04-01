@@ -33,6 +33,10 @@ bash ./ly.sh
 cd ..
 rm -rf ./ly
 
+# temp
+#todo: fix
+exit
+
 #* install i3
 dnf -y install i3 i3status dmenu i3lock xbacklight feh conky
 
