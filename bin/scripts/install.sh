@@ -21,13 +21,14 @@ dnf -y remove cifs-utils samba-common-libs samba-client-libs libsmbclient libwbc
 #* install ufw (optional)
 dnf -y install ufw
 systemctl enable ufw --now
-systemctl disable firewalld --now
 for i in $(ufw status | wc -l); do
   ufw --force delete 1
 done
 ufw default deny incoming
 ufw default allow outgoing
 ufw enable
+
+systemctl disable firewalld --now
 
 
 source ./bin/scripts/harden.sh
