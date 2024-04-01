@@ -20,8 +20,8 @@ dnf -y remove cifs-utils samba-common-libs samba-client-libs libsmbclient libwbc
 
 #* install ufw (optional)
 dnf -y install ufw
-systemctl disable firewalld --now
 systemctl enable ufw --now
+systemctl disable firewalld --now
 for i in $(ufw status | wc -l); do
   ufw --force delete 1
 done
