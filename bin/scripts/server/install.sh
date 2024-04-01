@@ -67,3 +67,9 @@ dnf -y install xorg-x11-amdgpu
 
 #* install apps
 dnf -y install gnome-terminal gnome-text-editor nemo nemo-fileroller chromium
+
+#* install network tools
+dnf -y install nginx certbot python3-certbot-nginx
+
+#* install php
+dnf -y install php php-bcmath php-dba php-dom php-enchant php-fileinfo php-mysqli php-pspell php-soap php-sockets php-tidy php-xmlreader php-xmlwriter php-zip php-memcache php-mailparse php-imagick php-redis php-curl php-common php-opcache
