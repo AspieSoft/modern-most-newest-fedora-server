@@ -4,15 +4,15 @@ source ./bin/scripts/common.sh
 
 #* optimize package manager
 if ! grep -R "^# Added for Speed" "/etc/dnf/dnf.conf"; then
-  sudo sed -r -i 's/^best=(.*)$/best=True/m' "/etc/dnf/dnf.conf"
-  #echo "fastestmirror=True" | sudo tee -a "/etc/dnf/dnf.conf"
-  echo "max_parallel_downloads=10" | sudo tee -a "/etc/dnf/dnf.conf"
-  echo "defaultyes=True" | sudo tee -a "/etc/dnf/dnf.conf"
-  echo "keepcache=True" | sudo tee -a "/etc/dnf/dnf.conf"
-  echo "install_weak_deps=False" | sudo tee -a "/etc/dnf/dnf.conf"
+  sed -r -i 's/^best=(.*)$/best=True/m' "/etc/dnf/dnf.conf" &>/dev/null
+  #echo "fastestmirror=True" | tee -a "/etc/dnf/dnf.conf" &>/dev/null
+  echo "max_parallel_downloads=10" | tee -a "/etc/dnf/dnf.conf" &>/dev/null
+  echo "defaultyes=True" | tee -a "/etc/dnf/dnf.conf" &>/dev/null
+  echo "keepcache=True" | tee -a "/etc/dnf/dnf.conf" &>/dev/null
+  echo "install_weak_deps=False" | tee -a "/etc/dnf/dnf.conf" &>/dev/null
 fi
 
-sudo dnf -y update
+dnf -y update
 
 #* install and remove apps
 dnf -y install firewalld qemu-guest-agent tuned
@@ -128,3 +128,6 @@ if [ "$1" = "-s" -o "$1" = "--server" -o "$1" = "-server" -o "$1" = "server" ]; 
 elif [ "$1" = "-d" -o "$1" = "--desktop" -o "$1" = "-desktop" -o "$1" = "desktop" ]; then
   source ./bin/scripts/desktop/install.sh
 fi
+
+dnf -y update
+dnf -y clean all
