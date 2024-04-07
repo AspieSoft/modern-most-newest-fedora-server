@@ -28,6 +28,10 @@ ufw default deny incoming
 ufw default allow outgoing
 ufw enable
 
+for i in $(ufw status | wc -l); do
+  ufw --force delete 1
+done
+
 systemctl disable firewalld --now
 
 
