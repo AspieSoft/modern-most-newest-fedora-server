@@ -21,16 +21,24 @@ dnf -y remove cifs-utils samba-common-libs samba-client-libs libsmbclient libwbc
 #* install ufw (optional)
 dnf -y install ufw
 systemctl enable ufw --now
-for i in $(ufw status | wc -l); do
-  ufw --force delete 1
-done
+
+# if not ssh
+if [ "$SSH_CLIENT" = "" -a "$SSH_TTY" = "" ]; then
+  for i in $(ufw status | wc -l); do
+    ufw --force delete 1
+  done
+fi
+
 ufw default deny incoming
 ufw default allow outgoing
 ufw enable
 
-for i in $(ufw status | wc -l); do
-  ufw --force delete 1
-done
+# if not ssh
+if [ "$SSH_CLIENT" = "" -a "$SSH_TTY" = "" ]; then
+  for i in $(ufw status | wc -l); do
+    ufw --force delete 1
+  done
+fi
 
 systemctl disable firewalld --now
 
