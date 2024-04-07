@@ -131,3 +131,4 @@ fi
 
 dnf -y update
 dnf -y clean all
+dnf -y autoremove
